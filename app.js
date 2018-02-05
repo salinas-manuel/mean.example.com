@@ -59,7 +59,7 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-/*
+
 //Set up CORS and proper
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Credentials', true);
@@ -74,7 +74,7 @@ app.use(function(req, res, next) {
      }
 
 });
-*/
+
 
 passport.use(User.createStrategy());
 
@@ -181,10 +181,10 @@ app.use(function(req,res,next){
   if(req.isAuthenticated()){
     return next();
   }
-
-  res.status(401);
-  return res.send('unauthorized');
-  //return res.redirect('/users/login');
+    return next();
+  // res.status(401);
+  // return res.send('unauthorized');
+  // return res.redirect('/users/login');
 });
 
 app.use('/', index);
