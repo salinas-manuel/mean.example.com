@@ -6,4 +6,9 @@ router.get('/', function(req, res, next) {
 });
 
 
+//crash the server
+router.get('/exit', function(req, res, next){
+  process.exit(1);
+});
+
 module.exports = router;
