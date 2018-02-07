@@ -54,8 +54,8 @@ app.use(require('express-session')({
   cookie: {
     path: '/',
     domain: config.cookie.domain,
-    httpOnly: true,
-    secure: true,
+    //httpOnly: true,
+    //secure: true,
     maxAge: 1000 * 60 * 24 // 24 hours
   }
 }));
