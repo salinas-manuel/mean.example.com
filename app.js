@@ -78,7 +78,7 @@ app.use(function(req, res, next) {
 
 
 passport.use(User.createStrategy());
-
+//test
 passport.use(new GitHubStrategy({
     clientID:config.gitHub.clientID,
     clientSecret:config.gitHub.clientSecret,
