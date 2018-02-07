@@ -56,48 +56,48 @@ function viewPost(postId){
 console.log(xhr.response);
     let data = JSON.parse(xhr.response);
 
-    app.innerHTML = `<h2>${data.post[0].title}</h2>
+    app.innerHTML = `<h2>${data.post.title}</h2>
       <h3>Body</h3>
-      <div>${data.post[0].body}</div>
+      <div>${data.post.body}</div>
       <h3>Description</h3>
-      <div>${data.post[0].description}</div>
+      <div>${data.post.description}</div>
       <h3>Keywords</h3>
-      <div>${data.post[0].keywords}</div>
+      <div>${data.post.keywords}</div>
       <h3>Pub Date</h3>
-      <div>${data.post[0].published}</div>
+      <div>${data.post.published}</div>
 
       <h3>Edit the Post</h3>
       <form id="editPost" action="/posts/edit" method="post">
-        <input type="hidden" name="_id" value="${data.post[0]._id}">
+        <input type="hidden" name="_id" value="${data.post._id}">
         <div>
           <label for="title">Title</label>
-          <input type="text" value="${data.post[0].title}" name="title" id="title">
+          <input type="text" value="${data.post.title}" name="title" id="title">
         </div>
 
         <div>
           <label for="body">Body</label>
-          <textarea name="body" id="body">${data.post[0].body}</textarea>
+          <textarea name="body" id="body">${data.post.body}</textarea>
         </div>
 
         <div>
           <label for="keywords">Keywords</label>
-          <textarea name="keywords" id="keywords">${data.post[0].keywords}</textarea>
+          <textarea name="keywords" id="keywords">${data.post.keywords}</textarea>
         </div>
 
         <div>
           <label for="description">Description</label>
-          <textarea name="description" id="description">${data.post[0].description}</textarea>
+          <textarea name="description" id="description">${data.post.description}</textarea>
         </div>
 
         <div>
           <label for="published">Pub Date</label>
-          <input type="text" value="${data.post[0].published}" name="published" id="published">
+          <input type="text" value="${data.post.published}" name="published" id="published">
         </div>
         <input type="submit" value="Submit">
       </form>
 
       <div class="delete">
-        <a href="#delete" onclick="deletePost('${data.post[0]._id}');">Delete</a>
+        <a href="#delete" onclick="deletePost('${data.post._id}');">Delete</a>
       </div>
     `;
 
@@ -112,7 +112,7 @@ console.log(xhr.response);
       var xhr = new XMLHttpRequest();
       xhr.open('POST', url);
 
-      //Be sure to add a ajson headevalue="${data.post[0].published}" r to form, otherwise body parser will freak out
+      //Be sure to add a ajson headevalue="${data.post.published}" r to form, otherwise body parser will freak out
       xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
       console.log(data);
       //Convert formData to JSON
@@ -223,11 +223,11 @@ if(hash){
 
   let chunks = hash.split('-');
 
-  if(chunks[0]=='edit'){
+  if(chunks=='edit'){
     viewPost(chunks[1]);
   }
 
-  //if(chunks[0]=='create'){
+  //if(chunks=='create'){
   //  createPost();
   //}
 
