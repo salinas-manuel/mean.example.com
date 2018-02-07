@@ -31,7 +31,7 @@ var User = require('./models/user');
 mongoose.connect(config.mongodb);
 
 app.use(helmet());
-app.use(compression())
+app.use(compression());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
